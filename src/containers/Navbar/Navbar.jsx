@@ -6,8 +6,8 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 const Navbar = () => {
   return (
     <nav className="nav">
-      <SearchBox className="nav__item" alt="Search Box"/>
-      <FiltersList className="nav__item" alt="Filters List" />
+      <SearchBox className="nav__item" label="search"/>
+      <FiltersList className="nav__item" title="results"/>
     </nav>
     )
 }

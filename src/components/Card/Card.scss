@@ -1,19 +1,22 @@
 @use "../../assets/sass/_variables.scss" as *;
 
 .card {
-  border: 0.3em solid $color-primary;
+  border: 0.1em solid $color-primary;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 1em;
   background-color: #eee;
 
+
+
   &__image {
-    height: 15em;
+    height: 2em;
     object-fit: scale-down;
   }
 
   &__desc {
-    font-size: 1em;
+    font-size: 0.9em;
+    margin: 0;
   }
 }

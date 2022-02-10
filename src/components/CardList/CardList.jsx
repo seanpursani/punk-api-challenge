@@ -10,7 +10,6 @@ const CardList = () => {
       beerImage={beer.image_url}
       beerName={beer.name}
       beerDesc={beer.description}
-      beerTitle={title}
     />
   ));
 
