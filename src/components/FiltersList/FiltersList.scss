@@ -1,0 +1,7 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.filterList {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}

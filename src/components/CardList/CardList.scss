@@ -1,0 +1,9 @@
+@use "../../assets/sass/_variables.scss" as *;
+
+.card-list {
+  padding: 1em;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1em
+}

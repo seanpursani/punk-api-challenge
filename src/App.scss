@@ -1,0 +1,17 @@
+@use "./assets/sass/_variables.scss" as *;
+
+.App {
+  display: flex;
+  height: 100vh;
+  color: $color-primary;
+}
+
+.nav {
+  flex-grow: 2;
+  width: 20vw;
+}
+
+.main {
+  width: 80vw;
+  flex-grow: 4;
+}
