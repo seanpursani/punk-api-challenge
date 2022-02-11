@@ -7,7 +7,8 @@ const Navbar = (props) => {
   const {
     searchTerm,
     setSearchTerm,
-    handleInput
+    handleInput,
+    toggles
   } = props;
 
 

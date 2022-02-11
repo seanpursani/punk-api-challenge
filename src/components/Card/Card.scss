@@ -3,20 +3,28 @@
 .card {
   border: 0.1em solid $color-primary;
   display: flex;
-  flex-direction: column;
   align-items: center;
   padding: 1em;
   background-color: #eee;
 
-
-
   &__image {
-    height: 2em;
-    object-fit: scale-down;
+    max-height: 15em;
+    width: 4em;
+    padding: 1em;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    margin: 0;
+    margin-bottom: 0.5em;
   }
 
   &__desc {
-    font-size: 0.9em;
+    font-size: 0.7em;
     margin: 0;
   }
 }
