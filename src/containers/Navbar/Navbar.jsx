@@ -3,13 +3,20 @@ import "./Navbar.scss";
 import FiltersList from "../../components/FiltersList/FiltersList"
 import SearchBox from '../../components/SearchBox/SearchBox';
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const {
+    searchTerm,
+    setSearchTerm,
+    handleInput
+  } = props;
+
+
   return (
     <nav className="nav">
-      <SearchBox className="nav__item" label="search"/>
+      <SearchBox className="nav__item" label="search" searchTerm={searchTerm} handleInput={handleInput}/>
       <FiltersList className="nav__item" title="results"/>
     </nav>
     )
 }
 
-export default Navbar
+export default Navbar;

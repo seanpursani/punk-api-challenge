@@ -5,7 +5,7 @@ import "./FiltersList.scss"
 const FiltersList = () => {
   return (
     <div className="filterList">
-      <FilterItem />
+      <FilterItem name="ABV" />
       <FilterItem />
       <FilterItem />
     </div>
