@@ -3,11 +3,21 @@ import CardList from "../../components/CardList/CardList"
 import "./Main.scss";
 
 const Main = (props) => {
-  const { searchTerm } = props;
+  const { 
+    searchTerm,
+    stateClassic,
+    stateAcidic,
+    stateABV
+  } = props;
 
   return (
     <section class="main">
-      <CardList class="cardlist" searchTerm={searchTerm}/>
+      <CardList class="cardlist" 
+        searchTerm={searchTerm}
+        stateClassic={stateClassic}
+        stateAcidic={stateAcidic}
+        stateABV={stateABV}
+      />
     </section>
   )
 }

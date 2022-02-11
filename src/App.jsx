@@ -2,9 +2,12 @@ import './App.scss';
 import { useState } from 'react';
 import Main from "./containers/Main/Main"
 import Navbar from './containers/Navbar/Navbar';
-import React from 'react'
+import React from 'react';
 
 function App() {
+  const [stateABV, setStateABV] = useState(false)
+  const [stateClassic, setStateClassic] = useState(false)
+  const [stateAcidic, setStateAcidic] = useState(false)
 
   //SEARCH BOX
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,18 +17,6 @@ function App() {
     setSearchTerm(searchTerm);  
   }
 
-  //FILTER ITEM
-  
-  // const [showHighABV, setShowHighABV] = useState(false);
-  // const [showClassicRange, setShowClassicRange] = useState(false);
-  // const [showAcidicPH, setShowAcidicPH] = useState(false);
-
-  // const toggles = {
-  //   toggleABV: setShowHighABV(!showHighABV),
-  //   toggleClassicRange: setShowClassicRange(!showClassicRange),
-  //   toggleAcidicPH: setShowAcidicPH(!showAcidicPH)
-  // }
-
   return (
     <div className="App">
       <Navbar 
@@ -33,9 +24,19 @@ function App() {
         searchTerm={searchTerm} 
         setSearchTerm={setSearchTerm} 
         handleInput={handleInput}
-        // toggles={toggles}
+        stateABV={stateABV}
+        setStateABV={setStateABV}
+        stateAcidic={stateAcidic}
+        setStateAcidic={setStateAcidic}
+        stateClassic={stateClassic}
+        setStateClassic={setStateClassic}
       />
-      <Main className="main" searchTerm={searchTerm}/>
+      <Main className="main" 
+        searchTerm={searchTerm}
+        stateClassic={stateClassic}
+        stateAcidic={stateAcidic}
+        stateABV={stateABV}
+      />
     </div>
   );
 }

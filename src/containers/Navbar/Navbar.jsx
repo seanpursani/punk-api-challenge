@@ -8,14 +8,27 @@ const Navbar = (props) => {
     searchTerm,
     setSearchTerm,
     handleInput,
-    toggles
+    stateABV,
+    setStateABV,
+    stateClassic,
+    setStateClassic,
+    stateAcidic,
+    setStateAcidic
   } = props;
 
 
   return (
     <nav className="nav">
       <SearchBox className="nav__item" label="search" searchTerm={searchTerm} handleInput={handleInput}/>
-      <FiltersList className="nav__item" title="results"/>
+      <FiltersList className="nav__item" 
+        title="results"
+        stateABV={stateABV}
+        setStateABV={setStateABV}
+        stateAcidic={stateAcidic}
+        setStateAcidic={setStateAcidic}
+        stateClassic={stateClassic}
+        setStateClassic={setStateClassic}
+      />
     </nav>
     )
 }
