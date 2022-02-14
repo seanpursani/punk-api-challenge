@@ -1,49 +1,59 @@
 import React from 'react'
 import Card from "../Card/Card"
 import "./CardList.scss"
-import beers from "../../data/beers";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const CardList = (props) => {
   const {
-    searchTerm,
-    stateClassic,
-    stateAcidic,
-    stateABV
+    searchFilter,
+    beers,
+    setBeers
   } = props;
 
-  const beersFilter = beers.filter(beer => {
-    if (searchTerm) {
-      return beer.name.toLowerCase().includes(searchTerm);
-    }
-    if (stateClassic) {
-      return beer.first_brewed.split("/")[1] >= 2010;
-    }
-    if (stateABV) {
-      return beer.abv > 6;
-    }
-    if (stateAcidic) {
-      return beer.ph < 4;
-    }
-    if (!searchTerm) {
-      return beers;
-    }
-  })
+  const getBeers = () => {
+    fetch("https://api.punkapi.com/v2/beers")
+    .then(res => {
+      return res.json()
+    }).then(data => {
+      setBeers(data)
+    })
+  }
 
-  
-  const beerCards = beersFilter.map((beer, index) => (
+  useEffect(() => {
+    return getBeers()
+  }, [])
+
+  const filterBeers = () => {
+    const tempBeers = [...beers]
+    tempBeers.filter(obj => {
+      if (searchFilter.name) {
+        return obj.name.toLowerCase().includes(searchFilter.name);
+      }
+      if (searchFilter.classic) {
+        return obj.first_brewed.split("/")[1] >= 2010;
+      }
+      if (searchFilter.abv) {
+        return obj.abv > 6;
+      }
+      if (searchFilter.ph) {
+        return obj.ph < 4;
+      }
+    })
+    setBeers(tempBeers)
+  }
+    
+
+  const renderBeerCards = (arr) => arr.map((obj, index) => (
     <Card className="card-list__card" key={"Beer" + (index + 1)} 
-      beerImage={beer.image_url}
-      beerName={beer.name}
-      beerDesc={beer.description}
+      beerImage={obj.image_url}
+      beerName={obj.name}
+      beerDesc={obj.description}
     />
   ));
 
-
-
   return (
     <section className="card-list">
-     {beerCards}
+     {beers && renderBeerCards(beers)}
     </section>
   )
 }

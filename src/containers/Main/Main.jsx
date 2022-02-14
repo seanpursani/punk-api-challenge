@@ -4,19 +4,17 @@ import "./Main.scss";
 
 const Main = (props) => {
   const { 
-    searchTerm,
-    stateClassic,
-    stateAcidic,
-    stateABV
+    searchFilter,
+    beers,
+    setBeers
   } = props;
 
   return (
     <section class="main">
       <CardList class="cardlist" 
-        searchTerm={searchTerm}
-        stateClassic={stateClassic}
-        stateAcidic={stateAcidic}
-        stateABV={stateABV}
+        searchFilter={searchFilter}
+        beers = {beers}
+        setBeers = {setBeers}
       />
     </section>
   )

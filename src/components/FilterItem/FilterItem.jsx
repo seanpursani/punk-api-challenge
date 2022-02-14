@@ -3,14 +3,18 @@ import "./FilterItem.scss"
 
 const FilterItem = (props) => {
   const {
+    handleInput,
     name,
-    onClick
   } = props;
 
   return (
     <div className="toggle">
       <label className="toggle__label" for={name}>{name}</label>
-      <input className="toggle__label" type="checkbox" id={name} onClick={onClick}/>
+      <input 
+        className="toggle__input" 
+        type="checkbox" 
+        onChange={handleInput}
+      />
     </div>
   )
 }

@@ -5,29 +5,17 @@ import SearchBox from '../../components/SearchBox/SearchBox';
 
 const Navbar = (props) => {
   const {
-    searchTerm,
-    setSearchTerm,
-    handleInput,
-    stateABV,
-    setStateABV,
-    stateClassic,
-    setStateClassic,
-    stateAcidic,
-    setStateAcidic
+    handleInput
   } = props;
 
 
   return (
     <nav className="nav">
-      <SearchBox className="nav__item" label="search" searchTerm={searchTerm} handleInput={handleInput}/>
+      <SearchBox className="nav__item" 
+        handleInput={handleInput}
+      />
       <FiltersList className="nav__item" 
-        title="results"
-        stateABV={stateABV}
-        setStateABV={setStateABV}
-        stateAcidic={stateAcidic}
-        setStateAcidic={setStateAcidic}
-        stateClassic={stateClassic}
-        setStateClassic={setStateClassic}
+        handleInput={handleInput}
       />
     </nav>
     )

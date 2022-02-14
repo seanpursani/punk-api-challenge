@@ -5,37 +5,39 @@ import Navbar from './containers/Navbar/Navbar';
 import React from 'react';
 
 function App() {
-  const [stateABV, setStateABV] = useState(false)
-  const [stateClassic, setStateClassic] = useState(false)
-  const [stateAcidic, setStateAcidic] = useState(false)
+  const [beers, setBeers] = useState(false)
 
-  //SEARCH BOX
-  const [searchTerm, setSearchTerm] = useState("");
+  const [searchFilter, setSearchFilter] = useState({
+    name: "",
+    abv: false,
+    year: false,
+    ph: false
+  })
   
   const handleInput = (event) => {
-    const searchTerm = event.target.value;
-    setSearchTerm(searchTerm);  
+    const tempFilter = {...searchFilter};
+    if (event.target.id === "name") {
+      tempFilter.name = event.target.value.toLowerCase()
+    } else if (event.target.id === "abv") {
+      tempFilter.abv = event.target.checked;
+    } else if (event.target.id === "year") {
+      tempFilter.year = event.target.checked;
+    } else if (event.target.id === "ph") {
+      tempFilter.ph = event.target.checked;
+    }
+    setSearchFilter(tempFilter);  
   }
 
   return (
     <div className="App">
       <Navbar 
         className="nav"
-        searchTerm={searchTerm} 
-        setSearchTerm={setSearchTerm} 
-        handleInput={handleInput}
-        stateABV={stateABV}
-        setStateABV={setStateABV}
-        stateAcidic={stateAcidic}
-        setStateAcidic={setStateAcidic}
-        stateClassic={stateClassic}
-        setStateClassic={setStateClassic}
+        handleInput = {handleInput}
       />
       <Main className="main" 
-        searchTerm={searchTerm}
-        stateClassic={stateClassic}
-        stateAcidic={stateAcidic}
-        stateABV={stateABV}
+        searchFilter = {searchFilter}
+        beers = {beers}
+        setBeers = {setBeers}
       />
     </div>
   );
